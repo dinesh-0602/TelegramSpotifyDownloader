@@ -41,7 +41,7 @@ def get_single_song(bot, update):
     os.system(f'mkdir -p .temp{message_id}{chat_id}')
     os.chdir(f'./.temp{message_id}{chat_id}')
 
-    logging.log(logging.INFO, f'start downloading')
+    logging.log(logging.INFO, 'start downloading')
     bot.send_message(chat_id=chat_id, text="Fetching...")
 
     if config["SPOTDL_DOWNLOADER"]:
@@ -83,7 +83,7 @@ def authenticate(bot, update):
         bot.send_message(chat_id=chat_id, text="You signed in successfully. Enjoy🍻")
         raise Exception("Signed In")
     elif chat_id not in config["AUTH"]["USERS"]:
-        logging.log(logging.INFO, f'not authenticated try')
+        logging.log(logging.INFO, 'not authenticated try')
         bot.send_message(chat_id=chat_id, text="⚠️This bot is personal and you are not signed in. Please enter the "
                                                "password to sign in. If you don't know it contact the bot owner. ")
         raise Exception("Not Signed In")
